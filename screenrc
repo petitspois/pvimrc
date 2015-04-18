@@ -1,0 +1,35 @@
+#启动时不显示欢迎屏幕
+startup_message off
+
+term linux
+#use ^l as the Global Key
+#escape ^b^b
+##屏幕缓冲区设置为4096行
+defscrollback 4096
+
+##在vi或less之类退出时完全恢复到原屏幕内容
+altscreen off
+
+#自动detach
+autodetach on
+
+#编码
+defutf8 on
+defencoding utf8
+encoding UTF-8 UTF-8
+
+#设置屏幕下方状态栏
+hardstatus on
+hardstatus alwayslastline
+shelltitle "$|bash"
+##状态栏的显示信息定制 
+hardstatus string '%{= kG}%{g}[ %{w}%c %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{kB} %d/%m  %{g}]'
+#caption always "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%H %Y/%m/%d "
+#caption always "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %Y/%m/%d "
+
+##shutdown the noise（关闭报警响铃）
+vbell off
+
+## 绑定 Ctrl+a-w 为查看所有窗口列表w to show the window list
+bind w windowlist -b
+bind ^w windowlist -b
